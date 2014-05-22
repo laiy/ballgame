@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>LY-BallGame</title>
+    <meta charset='utf-8'/>
+    <link rel="stylesheet" href="ballgame.css" type="text/css">
+    <link rel="icon" href="images/images.jpg"/>
+    <script src="jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+    <div id="cover"></div>
+    <div id="upload">
+        <div class="upload-inner">
+            <img src="images/totoro233.png">
+            <input type="text" id="user-nickname" placeholder="input your nickname here">
+            <button id="log-in">upload</button>
+        </div>
+    </div>
+    <div id="ranking">
+        <div class="ranking-inner">
+            <div id="cancle">x</div>
+            <img src="images/totoro233.png">
+            <div class="ranking-list">
+                <ul class="top">
+                    <li>top</li>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+                <ul class="nickname">
+                    <li>nickname</li>
+                    <li name="ranking-nickname"></li>
+                    <li name="ranking-nickname"></li>
+                    <li name="ranking-nickname"></li>
+                    <li name="ranking-nickname"></li>
+                    <li name="ranking-nickname"></li>
+                    <li name="ranking-nickname"></li>
+                    <li name="ranking-nickname"></li>
+                    <li name="ranking-nickname"></li>
+                    <li name="ranking-nickname"></li>
+                    <li name="ranking-nickname"></li>
+                </ul>
+                <ul class="record">
+                    <li>record</li>
+                    <li name="ranking-score"></li>
+                    <li name="ranking-score"></li>
+                    <li name="ranking-score"></li>
+                    <li name="ranking-score"></li>
+                    <li name="ranking-score"></li>
+                    <li name="ranking-score"></li>
+                    <li name="ranking-score"></li>
+                    <li name="ranking-score"></li>
+                    <li name="ranking-score"></li>
+                    <li name="ranking-score"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="bullet-curtain" name="bullet-curtain"><span name="bullet-content">2333</span></div> -->
+    <div id="wrapper">
+        <h1>Hold on 30s if you were a man</h1>
+        <p>online</p>
+        <div id="show-ranking">Rank</div>
+        <canvas width="1024" height="768" id="canvas"></canvas>
+        <div id="timing"></div>
+        <div id="temp-record"></div>
+        <h2>Chatting</h2>
+        <textarea id="chat-text" readonly="readonly"></textarea>
+        <textarea id="user-chat"></textarea>
+        <div id="chat-upload">Send</div>
+    </div>
+
+    <script type="text/javascript" src="canvasBall2.js"></script>
+</body>
+
+</html>
