@@ -364,6 +364,7 @@
         htmlBullets[bulletsCount].style.top = randomTop + "px";
         htmlBullets[bulletsCount].style.left = windowWidth + "px";
         htmlBullets[bulletsCount].top = randomTop;
+        htmlBullets[bulletsCount].flag = true;
         htmlBullets[bulletsCount].width = htmlBullets[bulletsCount].offsetWidth;
         shootBullet(htmlBullets[bulletsCount], windowWidth);
         // $(htmlBullets[bulletsCount]).animate({left:'-200px'}, 4000, function() {
@@ -379,12 +380,15 @@
     function shootBullet(obj, position) {
         position -= 8;
         obj.style.left = position + "px";
-        if (position < -obj.width) {
-            document.body.removeChild(obj);
-            bulletsCount--;
+        if (obj.flag && position < windowWidth - obj.width) {
             for (var i = obj.top; i < obj.top + 50; i++) {
                 windowVerticalPosition[i] = 0;
             }
+            obj.flag = false;
+        }
+        if (position < -obj.width) {
+            document.body.removeChild(obj);
+            bulletsCount--;
         } else {
             requestAnimationFrame(function() {
                 shootBullet(obj, position);
