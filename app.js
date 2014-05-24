@@ -277,6 +277,14 @@ io.sockets.on('connection', function (socket) {
             }
         }
     });
+    socket.on('unload', function (data) {
+        for (var i = 0; i < usersCount; i++) {
+            if (data === usersBall[i].nickname) {
+                usersBall[i].nickname = "";
+                break;
+            }
+        }
+    });
 });
 
 function startTiming(obj) {
