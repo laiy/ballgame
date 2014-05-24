@@ -253,6 +253,14 @@ io.sockets.on('connection', function (socket) {
                                             }
                                         }
                                     }
+                                    if (docs.length > 10) {
+                                        var scoreOfTheTenth = docs[9].top[0];
+                                        for (var i = 0; i < docs.length; i++) {
+                                            if (docs[i].top[0] < scoreOfTheTenth) {
+                                                collection.remove({"top.0": docs[i].top[0]}, function(){});
+                                            }
+                                        }
+                                    }
                                     if (err) {
                                         console.log(err);
                                     } else {
