@@ -1,0 +1,22 @@
+var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+window.requestAnimationFrame = requestAnimationFrame;
+
+var scene = null;
+var camera = null;
+var renderer = null;
+var id = null;
+var start = null;
+var ballMesh = null;
+var ballRadius = 0.5;
+var isMoving = false;
+var maxHeight = 5;
+var v = 0;
+var a = -0.01;
+
+var init = function() {
+    start = new Starts();
+    start.domElement.style.position = 'absolute';
+    start.domELement.style.right = '0px';
+    stary.domElement.style.top = '0px';
+};
