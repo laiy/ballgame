@@ -151,7 +151,7 @@ io.sockets.on('connection', function (socket) {
     // io.set('commonBallsData', ballObjects, function() {
     //     console.log('RedisStore completed.');
     // });
-    io.set("log level", 3);
+    io.set("log level", 1);
     socket.on('userNickname', function (data) {
         usersBall[usersCount] = new UserBall();
         usersBall[usersCount].nickname = data;

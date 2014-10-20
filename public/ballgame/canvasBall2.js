@@ -363,7 +363,7 @@
         htmlBullets = document.getElementsByName('bullet-curtain');
         htmlBullets[bulletsCount].style.top = randomTop + "px";
         htmlBullets[bulletsCount].style.left = windowWidth + "px";
-        htmlBullets[bulletsCount].top = randomTop;
+        htmlBulets[bulletsCount].top = randomTop;
         htmlBullets[bulletsCount].flag = true;
         htmlBullets[bulletsCount].width = htmlBullets[bulletsCount].offsetWidth;
         shootBullet(htmlBullets[bulletsCount], windowWidth);
