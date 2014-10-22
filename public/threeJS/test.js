@@ -12,6 +12,10 @@ var isMoving = false;
 var maxHeight = 5;
 var v = 0;
 var a = -0.01;
+var cPositionX = 10;
+var cPositionY = 30;
+var cPositionZ = 10;
+
 
 function init() {
     stat = new Stats();
@@ -24,14 +28,16 @@ function init() {
     });
     scene = new THREE.Scene();
     camera = new THREE.OrthographicCamera(-5, 5, 3.75, -3.75, 0.1, 100);
-    camera.position.set(5, 10, 20);
-    camera.lookAt(new THREE.Vector3(0, 3, 0));
+    camera.position.set(cPositionX, cPositionY, cPositionZ);
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
     scene.add(camera);
     ballMesh = new THREE.Mesh(new THREE.SphereGeometry(ballRadius, 16, 8), 
         new THREE.MeshLambertMaterial({
             color: 0xEEEEEE
     }));
     ballMesh.position.y = ballRadius;
+    ballMesh.position.x = 0;
+    ballMesh.position.z = 0;
     scene.add(ballMesh);
     var texture = THREE.ImageUtils.loadTexture('chess.png', {}, function() {
         renderer.render(scene, camera);
@@ -77,5 +83,38 @@ function drop() {
     isMoving = true;
     ballMesh.position.y = maxHeight;
     v = 0;
+}
+
+document.onkeydown = function (moz_ev) {
+    var ev = null;
+    if (window.event) {
+        ev = window.event;
+    } else {
+        ev = moz_ev;
+    }
+    if (ev !== null && ev.keyCode == 37) {
+        camera.position.set(--cPositionX, cPositionY, cPositionZ);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    }
+    if (ev !== null && ev.keyCode == 38) {
+        camera.position.set(cPositionX, cPositionY, --cPositionZ);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    }
+    if (ev !== null && ev.keyCode == 39) {
+        camera.position.set(++cPositionX, cPositionY, cPositionZ);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    }
+    if (ev !== null && ev.keyCode == 40) {
+        camera.position.set(cPositionX, cPositionY, ++cPositionZ);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    }
+    if (ev !== null && ev.keyCode == 38 && ev.ctrlKey) {
+        camera.position.set(cPositionX, ++cPositionY, cPositionZ);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    }
+    if (ev !== null && ev.keyCode == 40 && ev.ctrlKey) {
+        camera.position.set(cPositionX, --cPositionY, cPositionZ);
+        camera.lookAt(new THREE.Vector3(0, 0, 0));
+    }
 }
 
