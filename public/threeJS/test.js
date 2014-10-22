@@ -69,6 +69,7 @@ function draw() {
     }
     renderer.render(scene, camera);
     id = requestAnimationFrame(draw);
+    camera.lookAt(new THREE.Vector3(ballMesh.position.x, ballMesh.position.y, ballMesh.position.z));
     stat.end();
 }
 
@@ -94,27 +95,21 @@ document.onkeydown = function (moz_ev) {
     }
     if (ev !== null && ev.keyCode == 37) {
         camera.position.set(--cPositionX, cPositionY, cPositionZ);
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
     }
     if (ev !== null && ev.keyCode == 38) {
         camera.position.set(cPositionX, cPositionY, --cPositionZ);
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
     }
     if (ev !== null && ev.keyCode == 39) {
         camera.position.set(++cPositionX, cPositionY, cPositionZ);
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
     }
     if (ev !== null && ev.keyCode == 40) {
         camera.position.set(cPositionX, cPositionY, ++cPositionZ);
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
     }
     if (ev !== null && ev.keyCode == 38 && ev.ctrlKey) {
         camera.position.set(cPositionX, ++cPositionY, cPositionZ);
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
     }
     if (ev !== null && ev.keyCode == 40 && ev.ctrlKey) {
         camera.position.set(cPositionX, --cPositionY, cPositionZ);
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
     }
 }
 
