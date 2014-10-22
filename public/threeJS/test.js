@@ -43,8 +43,8 @@ function init() {
         renderer.render(scene, camera);
     });
     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-    texture.repeat.set(16, 16);
-    var plane = new THREE.Mesh(new THREE.PlaneGeometry(5, 5),
+    texture.repeat.set(50, 50);
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(30, 30),
             new THREE.MeshLambertMaterial({map: texture}));
     plane.rotation.x = -Math.PI / 2;
     scene.add(plane);
